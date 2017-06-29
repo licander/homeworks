@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-# Форматы json, xml, yaml используются для передачи структурированных данных между клиентом и сервером, для хранения 
-#конфигурационных файлов. yaml - наиболее человекочитаем, очень похож на json. Оба имеют структуру словарей и списков
-#В xml нет словарей, но есть атрибуты.
 
 def get_shop_list_by_dishes(dishes, person_count):
   shop_list = {}
@@ -35,12 +32,10 @@ def get_cook_book(file_name):
         for line in file:
             dish = line.strip()
             count_ingridient = int(file.readline())
-            i = 0
             ingridients_list = []
-            while i < count_ingridient:
+            for _ in range(count_ingridient):
                 ingridient = get_dict_from_str(file.readline())
                 ingridients_list.append(ingridient)
-                i += 1
             cook_book[dish] = ingridients_list
     return cook_book
             
